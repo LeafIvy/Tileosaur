@@ -24,12 +24,13 @@ class Player(pg.sprite.Sprite):
 
     def move(self, dt):
         """Alter position of player rect"""
+        # moves player after timer's over
         if not self.move_delay:
             self.rect.x += self.speed * TILE_SIZE * self.direction.x
 
             self.rect.y += self.speed * TILE_SIZE * self.direction.y
 
-            if self.direction: self.move_delay.activate()
+            if self.direction: self.move_delay.activate() # reactivates timer
 
     def update(self, dt):
         """Call methods to update player data"""
