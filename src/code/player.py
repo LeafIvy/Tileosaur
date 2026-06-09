@@ -25,3 +25,7 @@ class Player(pg.sprite.Sprite):
 
         self.rect.y += self.speed * TILE_SIZE * self.direction.y * dt
 
+    def update(self, dt):
+        self.input()
+        self.move(dt)
+        
