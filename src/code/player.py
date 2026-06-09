@@ -20,3 +20,8 @@ class Player(pg.sprite.Sprite):
 
         self.direction.y = int(keys[pg.K_s]) - int(keys[pg.K_w])
 
+    def move(self, dt):
+        self.rect.x += self.speed * TILE_SIZE * self.direction.x * dt
+
+        self.rect.y += self.speed * TILE_SIZE * self.direction.y * dt
+
