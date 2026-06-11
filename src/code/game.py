@@ -1,7 +1,7 @@
 from src.utils import *
 from .player import Player
 from .tileosaur import Tileosaur
-from .groups import AllSprites
+from src.utils.groups import AllSprites
 
 
 class Game:
