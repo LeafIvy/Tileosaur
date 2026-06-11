@@ -1,4 +1,6 @@
 import pygame as pg
+from os import walk
+from os.path import join
 
 
 # window settings

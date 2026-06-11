@@ -21,7 +21,9 @@ class Game:
         # player setup
         self.player = Player(pg.Surface((64, 64)), (0, 0), (self.all_sprites,))
 
-        self.saur = Tileosaur(pg.Surface((64, 64)), (5*64, 64), (self.all_sprites,))
+        saur_surf = pg.image.load(join('src', 'images', 'tileosaurs', 'Palitiles.png')).convert_alpha()
+        saur_surf = pg.transform.scale2x(saur_surf)
+        self.saur = Tileosaur(saur_surf, (5*64, 64), (self.all_sprites,))
 
         # grid
         self.vertical_lines = [[(i, 0), (i, WINDOW_HEIGHT)] for i in range(-32, WINDOW_WIDTH, 64)]
