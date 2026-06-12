@@ -68,6 +68,11 @@ class Tileosaur(Creature):
 
             current_node = min(leaf_nodes, key=lambda x: x.cost + x.distance_cost)
 
+    def move(self):
+        self.rect.x += TILE_SIZE * self.direction.x
+        self.rect.y += TILE_SIZE * self.direction.y
+
+
 class TileNode(pg.FRect):
     def __init__(self, pos):
         super().__init__(pos, (TILE_SIZE + 5,) * 2)
