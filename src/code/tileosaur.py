@@ -68,10 +68,23 @@ class Tileosaur(Creature):
 
             current_node = min(leaf_nodes, key=lambda x: x.cost + x.distance_cost)
 
+    def get_direction(self, target):
+        direction_node = self.astar(target)
+
+        if direction_node.centerx < self.rect.centerx: self.direction.x = -1
+        elif direction_node.centerx > self.rect.centerx: self.direction.x = 1
+        else: self.direction.x = 0
+
+        if direction_node.centery < self.rect.centery: self.direction.y = -1
+        elif direction_node.centery > self.rect.centery: self.direction.y = 1
+        else: self.direction.y = 0
+
     def move(self):
         self.rect.x += TILE_SIZE * self.direction.x
         self.rect.y += TILE_SIZE * self.direction.y
 
+    def update(self, _):
+        self.move()
 
 class TileNode(pg.FRect):
     def __init__(self, pos):
